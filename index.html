@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexGen - The Future of Productivity</title>
+    <meta name="description" content="A powerful suite of tools designed to boost your workflow and supercharge your team's productivity.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="dark-theme">
+
+    <!-- Glowing Background Ambient Orbs -->
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+
+    <!-- Sticky Navigation -->
+    <header id="header" class="header blur-effect">
+        <div class="container nav-container">
+            <a href="#" class="logo">Nex<span class="text-gradient">Gen</span></a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#benefits" class="nav-link">Benefits</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-action">
+                    <a href="#pricing" class="btn btn-gradient btn-glow">Get Started</a>
+                </div>
+            </nav>
+            
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content animate-slide-up">
+                <div class="badge-pill mb-4 outline-gradient">
+                    <span class="badge-dot pulse"></span> Introducing NexGen 2.0
+                </div>
+                <h1 class="hero-headline">Supercharge Your <br/><span class="text-gradient-animated">Workflow</span> Today</h1>
+                <p class="hero-subheadline">Experience unparalleled speed and efficiency with our premium suite of intuitive productivity tools designed for modern elite teams.</p>
+                <div class="hero-cta mt-4">
+                    <a href="#pricing" class="btn btn-gradient btn-lg btn-glow">Start Free Trial <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#features" class="btn btn-glass btn-lg outline-hover">Explore Features</a>
+                </div>
+            </div>
+            <div class="hero-image animate-fade-in delay-200">
+                <div class="image-wrapper glass-panel float-animation">
+                    <div class="image-overlay-glow"></div>
+                    <img src="images/hero.png" alt="NexGen Platform Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Cloud -->
+    <div class="logo-cloud animate-fade-in">
+        <div class="container">
+            <p class="text-xs text-center text-muted mb-4 uppercase tracking-widest">Trusted by innovative teams worldwide</p>
+            <div class="flex flex-center gap-8 opacity-50 grayscale-hover">
+                <i class="fa-brands fa-aws fa-2x"></i>
+                <i class="fa-brands fa-docker fa-2x"></i>
+                <i class="fa-brands fa-slack fa-2x"></i>
+                <i class="fa-brands fa-figma fa-2x"></i>
+                <i class="fa-brands fa-js fa-2x"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features section-padding relative z-10" id="features">
+        <div class="container">
+            <div class="section-heading text-center animate-fade-in">
+                <h2 class="section-title">Design without limits.</h2>
+                <p class="section-subtitle">Our platform brings all the right tools together, giving you the power to focus on what actually matters.</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card glass-panel hover-glow animate-fade-in delay-100">
+                    <div class="feature-icon gradient-bg"><i class="fa-solid fa-bolt"></i></div>
+                    <h3 class="feature-title">Lightning Fast</h3>
+                    <p class="feature-desc">Optimized for speed, NexGen ensures your team works without latency interruptions, boosting overall output.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card glass-panel hover-glow animate-fade-in delay-200">
+                    <div class="feature-icon gradient-bg"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 class="feature-title">Enterprise Security</h3>
+                    <p class="feature-desc">Your data is secured with state-of-the-art encryption standards, maintaining absolute privacy implicitly.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card glass-panel hover-glow animate-fade-in delay-300">
+                    <div class="feature-icon gradient-bg"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3 class="feature-title">Advanced Analytics</h3>
+                    <p class="feature-desc">Gain rich insights out of the box with our comprehensive, real-time analytics dashboards.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="feature-card glass-panel hover-glow animate-fade-in delay-400">
+                    <div class="feature-icon gradient-bg"><i class="fa-solid fa-plug"></i></div>
+                    <h3 class="feature-title">Seamless Integrations</h3>
+                    <p class="feature-desc">Connect NexGen instantly with over 100+ of your favorite tools, including Slack, Jira, and GitHub.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter Section -->
+    <section class="stats-section border-y relative z-10 glass-panel no-border">
+        <div class="container stats-container">
+            <div class="stat-item">
+                <h3 class="stat-number count-up text-gradient" data-target="10000">0</h3><span class="stat-plus text-gradient">+</span>
+                <p class="stat-label uppercase tracking-widest text-xs">Active Users</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="stat-number count-up text-gradient" data-target="99">0</h3><span class="stat-plus text-gradient">%</span>
+                <p class="stat-label uppercase tracking-widest text-xs">Satisfaction</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="stat-number count-up text-gradient" data-target="24">0</h3><span class="stat-plus text-gradient">/7</span>
+                <p class="stat-label uppercase tracking-widest text-xs">Premium Support</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits section-padding relative z-10" id="benefits">
+        <div class="container benefits-container">
+            <div class="benefits-image animate-fade-in float-animation-slow">
+                <div class="glass-panel image-glow-wrap">
+                    <img src="images/benefits.png" alt="Analytics Dashboard UI" class="rounded">
+                </div>
+            </div>
+            <div class="benefits-content animate-slide-up delay-200">
+                <div class="badge-pill mb-4 outline-gradient">Workflow Automation</div>
+                <h2 class="section-title">Work Smarter,<br/> Not Harder.</h2>
+                <p class="section-subtitle">We remove the friction from your daily tasks so your team can focus entirely on high-impact work and innovation.</p>
+                
+                <ul class="benefits-list mt-8">
+                    <li class="glass-panel hover-glow flex-row">
+                        <div class="icon-box gradient-bg"><i class="fa-solid fa-robot"></i></div>
+                        <div>
+                            <strong>Automate Repetitive Tasks:</strong> 
+                            <span class="text-muted block mt-1">Let our AI handle the boring stuff while you focus on creative problem solving.</span>
+                        </div>
+                    </li>
+                    <li class="glass-panel hover-glow flex-row">
+                        <div class="icon-box gradient-bg"><i class="fa-solid fa-users"></i></div>
+                        <div>
+                            <strong>Real-time Collaboration:</strong> 
+                            <span class="text-muted block mt-1">Work together with your team simultaneously from anywhere in the world.</span>
+                        </div>
+                    </li>
+                    <li class="glass-panel hover-glow flex-row">
+                        <div class="icon-box gradient-bg"><i class="fa-solid fa-chart-line"></i></div>
+                        <div>
+                            <strong>Actionable Reporting:</strong> 
+                            <span class="text-muted block mt-1">Turn raw data into decisive actions with automatically generated KPI summaries.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="testimonials section-padding relative z-10" id="testimonials">
+        <div class="container">
+            <div class="section-heading text-center animate-fade-in">
+                <h2 class="section-title">Beloved by Leaders.</h2>
+                <p class="section-subtitle">See what our community has to say about their experience with NexGen.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card glass-panel hover-glow animate-fade-in delay-100">
+                    <div class="flex justify-between items-center mb-6">
+                        <img src="images/avatar1.png" alt="Sarah Jenks" class="avatar-lg border-gradient">
+                        <div class="quote-icon text-gradient"><i class="fa-solid fa-quote-right fa-2x opacity-50"></i></div>
+                    </div>
+                    <p class="testimonial-text">"NexGen has completely transformed our workflow. The analytics tools alone saved us countless hours of manual data processing."</p>
+                    <div class="author-info mt-auto">
+                        <h4>Sarah Jenks</h4>
+                        <span class="text-gradient">CTO, InnovateTech</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card glass-panel hover-glow animate-fade-in delay-200">
+                    <div class="flex justify-between items-center mb-6">
+                        <img src="images/avatar2.png" alt="Mark Thompson" class="avatar-lg border-gradient">
+                        <div class="quote-icon text-gradient"><i class="fa-solid fa-quote-right fa-2x opacity-50"></i></div>
+                    </div>
+                    <p class="testimonial-text">"The slick interface and powerful backend make this an absolute joy to use. My team's overall productivity skyrocketed by 30%."</p>
+                    <div class="author-info mt-auto">
+                        <h4>Mark Thompson</h4>
+                        <span class="text-gradient">Product Manager, ScaleCorp</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card glass-panel hover-glow animate-fade-in delay-300">
+                    <div class="flex justify-between items-center mb-6">
+                        <img src="images/avatar3.png" alt="Emily Chen" class="avatar-lg border-gradient">
+                        <div class="quote-icon text-gradient"><i class="fa-solid fa-quote-right fa-2x opacity-50"></i></div>
+                    </div>
+                    <p class="testimonial-text">"Setup took barely 10 minutes and the seamless integrations with Jira and Slack meant we didn't have to alter our existing habits."</p>
+                    <div class="author-info mt-auto">
+                        <h4>Emily Chen</h4>
+                        <span class="text-gradient">Lead Developer, DevSolutions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing section-padding relative z-10" id="pricing">
+        <div class="container">
+            <div class="section-heading text-center animate-fade-in">
+                <h2 class="section-title">Simple, Transparent Pricing.</h2>
+                <p class="section-subtitle">No hidden fees. No surprise charges. Choose the plan that best fits your needs.</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Basic Tier -->
+                <div class="pricing-card glass-panel hover-glow animate-slide-up delay-100">
+                    <div class="tier-header">
+                        <h3>Basic</h3>
+                        <div class="price"><span>$</span>19<span class="period">/mo</span></div>
+                        <p class="text-muted">Perfect for individuals starting out.</p>
+                    </div>
+                    <ul class="tier-features">
+                        <li><i class="fa-solid fa-check text-gradient"></i> Up to 5 projects</li>
+                        <li><i class="fa-solid fa-check text-gradient"></i> Basic analytics</li>
+                        <li><i class="fa-solid fa-check text-gradient"></i> 24h support response</li>
+                        <li class="disabled"><i class="fa-solid fa-xmark"></i> Custom integrations</li>
+                        <li class="disabled"><i class="fa-solid fa-xmark"></i> Team collaboration</li>
+                    </ul>
+                    <div class="tier-cta mt-8">
+                        <a href="#" class="btn btn-glass btn-block outline-hover">Choose Basic</a>
+                    </div>
+                </div>
+
+                <!-- Pro Tier (Highlighted) -->
+                <div class="pricing-card glass-panel card-featured outline-gradient animate-slide-up delay-200">
+                    <div class="featured-glow-bg"></div>
+                    <div class="badge-pill outline-gradient badge-top">Most Popular</div>
+                    <div class="tier-header relative z-10">
+                        <h3>Pro</h3>
+                        <div class="price"><span>$</span>49<span class="period">/mo</span></div>
+                        <p class="text-muted">Best for growing teams and startups.</p>
+                    </div>
+                    <ul class="tier-features relative z-10">
+                        <li><i class="fa-solid fa-check text-gradient"></i> Unlimited projects</li>
+                        <li><i class="fa-solid fa-check text-gradient"></i> Advanced analytics</li>
+                        <li><i class="fa-solid fa-check text-gradient"></i> 1h support response</li>
+                        <li><i class="fa-solid fa-check text-gradient"></i> 50+ integrations</li>
+                        <li><i class="fa-solid fa-check text-gradient"></i> Team collaboration (10 members)</li>
+                    </ul>
+                    <div class="tier-cta mt-8 relative z-10">
+                        <a href="#" class="btn btn-gradient btn-block btn-glow">Choose Pro</a>
+                    </div>
+                </div>
+
+                <!-- Enterprise Tier -->
+                <div class="pricing-card glass-panel hover-glow animate-slide-up delay-300">
+                    <div class="tier-header">
+                        <h3>Enterprise</h3>
+                        <div class="price"><span>$</span>99<span class="period">/mo</span></div>
+                        <p class="text-muted">For large scale organizations.</p>
+                    </div>
+                    <ul class="tier-features">
+                        <li><i class="fa-solid fa-check text-gradient"></i> Everything in Pro</li>
+                        <li><i class="fa-solid fa-check text-gradient"></i> Custom reporting</li>
+                        <li><i class="fa-solid fa-check text-gradient"></i> 24/7 dedicated support</li>
+                        <li><i class="fa-solid fa-check text-gradient"></i> Unlimited integrations</li>
+                        <li><i class="fa-solid fa-check text-gradient"></i> Unlimited team members</li>
+                    </ul>
+                    <div class="tier-cta mt-8">
+                        <a href="#" class="btn btn-glass btn-block outline-hover">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Contact Section -->
+    <section class="cta-section relative z-10" id="contact">
+        <div class="container cta-container animate-fade-in">
+            <div class="cta-content text-center glass-panel border-gradient relative overflow-hidden">
+                <div class="cta-glow"></div>
+                <div class="relative z-10 p-12">
+                    <h2 class="text-4xl font-bold mb-4">Ready to <span class="text-gradient">transform</span> the way you work?</h2>
+                    <p class="text-xl text-muted mb-8">Join over 10,000 elite teams who have already leveled up.</p>
+                    
+                    <form id="signup-form" class="cta-form mx-auto w-max-md" novalidate>
+                        <div class="input-group glass-input flex">
+                            <input type="email" id="email" placeholder="Enter your business email" class="flex-1" required>
+                            <button type="submit" class="btn btn-gradient">Get Started</button>
+                        </div>
+                        <div class="form-message mt-4 text-left" id="form-message"></div>
+                    </form>
+                    <p class="cta-terms mt-4 text-xs text-muted">14-day free trial. No credit card required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer border-t border-glass relative z-10 mt-20 pt-16 pb-8">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <a href="#" class="logo text-2xl font-bold mb-4 block">Nex<span class="text-gradient">Gen</span></a>
+                <p class="text-muted text-base mb-6">Building the future of digital workspaces, one team at a time.</p>
+                <div class="social-links flex gap-4">
+                    <a href="#" aria-label="Twitter" class="hover-glow-text"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="hover-glow-text"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" aria-label="GitHub" class="hover-glow-text"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" aria-label="Discord" class="hover-glow-text"><i class="fa-brands fa-discord"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col text-base">
+                <h4 class="font-bold mb-6 text-white uppercase tracking-widest text-sm">Product</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-muted hover-text-white transition">Features</a></li>
+                    <li><a href="#" class="text-muted hover-text-white transition">Integrations</a></li>
+                    <li><a href="#" class="text-muted hover-text-white transition">Pricing</a></li>
+                    <li><a href="#" class="text-muted hover-text-white transition">Changelog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col text-base">
+                <h4 class="font-bold mb-6 text-white uppercase tracking-widest text-sm">Company</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-muted hover-text-white transition">About Us</a></li>
+                    <li><a href="#" class="text-muted hover-text-white transition">Careers</a></li>
+                    <li><a href="#" class="text-muted hover-text-white transition">Blog</a></li>
+                    <li><a href="#" class="text-muted hover-text-white transition">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col text-base">
+                <h4 class="font-bold mb-6 text-white uppercase tracking-widest text-sm">Legal</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-muted hover-text-white transition">Privacy Policy</a></li>
+                    <li><a href="#" class="text-muted hover-text-white transition">Terms of Service</a></li>
+                    <li><a href="#" class="text-muted hover-text-white transition">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container text-center text-sm text-muted mt-12 pt-8 border-top-glass">
+            <p>&copy; 2026 NexGen Technologies. Precision engineered design.</p>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top glass-btn" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Main Script -->
+    <script src="script.js"></script>
+</body>
+</html>
