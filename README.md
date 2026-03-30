@@ -53,4 +53,4 @@ This project was built deliberately avoiding large-scale JavaScript or CSS frame
 ```
 
 ---
-*Created by Antigravity AI Assistant.*
+*Created by Ankit Kumar.*
