@@ -1,6 +1,6 @@
 # NexGen Modern Landing Page
 
-A complete, high-converting modern landing page template built entirely with vanilla technologies. The design is tailored to a tech/SaaS audience with a specialized premium color palette of Electric Blue and Dark Navy, featuring dynamic animations and responsive layouts.
+A complete, high-converting modern landing page template built entirely with vanilla technologies. The design is tailored to a tech/SaaS audience featuring an ultra-premium Deep Space Dark Theme. It incorporates advanced glassmorphism effects, gently animated background ambient orbs, and beautiful neon linear gradients covering Electric Blue to Cyan components.
 
 ## Features Included
 
