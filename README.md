@@ -1,56 +1,193 @@
-# NexGen Modern Landing Page
+# NexGen — AWS EC2 Static Website Hosting with IAM
 
-A complete, high-converting modern landing page template built entirely with vanilla technologies. The design is tailored to a tech/SaaS audience featuring an ultra-premium Deep Space Dark Theme. It incorporates advanced glassmorphism effects, gently animated background ambient orbs, and beautiful neon linear gradients covering Electric Blue to Cyan components.
+> A premium SaaS-style landing page built with vanilla HTML, CSS, and JavaScript — deployed on AWS EC2 with Apache and secured via IAM access control.
 
-## Features Included
+---
 
-- **Fully Responsive Layout:** Utilizes modern CSS Grid and Flexbox techniques to guarantee the design scales perfectly from wide desktop monitors down to mobile devices.
-- **Micro-Interactions & Hover States:** Subtle tactile hover effects added to CTA buttons, navigation links, and feature cards to improve engagement.
-- **Scroll Animations (`IntersectionObserver`):** Key elements cleanly auto-fade and slide into view as the user scrolls down the page.
-- **Sticky Glassmorphism Header:** The custom top navigation bar receives depth, blur, and styling changes once a scroll happens, enabling users to maintain context anywhere on the page.
-- **Stats Counter:** Automatically counting up JavaScript logic handles numeric values within the social proof sections.
-- **Frontend Form Validation:** Custom JavaScript simulates backend payload requirements by natively handling validation via basic Regular Expressions without causing hard page reloads.
+## 🔗 Live Deployed Link
 
-## Pages & Sections
+**[http://54.173.124.70](http://54.173.124.70)**
 
-- **Hero:** Full-scale headline, subheadline, and a prominent call-to-action against an AI-generated 3D illustration.
-- **Features:** 3-column CSS Grid highlighting benefits utilizing FontAwesome iconography.
-- **Benefits Breakdown:** Side-by-side flexbox alignment matching dashboard components to key values.
-- **Social Proof:** Flex-driven 3-card layout populated with generated profile headshots.
-- **Pricing:** Three scaling tier pricing options (Basic, Pro, Enterprise) where the primary "Pro" tier is highlighted.
+> Hosted on an AWS EC2 instance (Amazon Linux 2023) with an Elastic IP for a persistent, stable public URL.
 
-## Tech Stack
+---
 
-This project was built deliberately avoiding large-scale JavaScript or CSS frameworks (e.g., React, Tailwind) to guarantee blazingly fast load times and straightforward DOM manipulation.
+## 📌 Project Description
 
-- **HTML5:** Semantic architecture
-- **CSS3:** Custom Variables, Animations (`@keyframes`), Media Queries
-- **JavaScript (Vanilla):** DOM Manipulation, Event Listeners, Intersection Observers
-- **External Resources:** 
-  - [Google Fonts](https://fonts.google.com/) (`Inter`)
-  - [FontAwesome v6](https://fontawesome.com/) (CDN connected for iconography)
+This project demonstrates end-to-end deployment of a static website on **AWS EC2** using the **Apache HTTP Server (httpd)**. It also covers **AWS IAM** configuration by creating two users with different permission levels to showcase access control best practices.
 
-## Getting Started
+The website itself — **NexGen** — is a modern, high-converting SaaS landing page featuring:
 
-1. Clone or download this repository repository to your local machine.
-2. The project directory relies entirely on relative paths. No build tool (like Webpack or Vite) or server environment (like Node.js) is required.
-3. Simply locate the `index.html` file contained within the root folder (`e:\aws project\`) and double-click to open it natively in your browser of choice (Google Chrome, Firefox, Safari, Edge).
+- Deep Space Dark Theme with glassmorphism UI
+- Animated ambient background orbs and scroll-triggered animations
+- Sticky glassmorphism navigation header
+- Live statistics counter (JavaScript `count-up`)
+- Frontend email form validation
+- Fully responsive layout (CSS Grid + Flexbox)
 
-## Project Structure
+---
 
-```text
-/
-├── index.html        # Main semantic structural code
-├── styles.css        # Fluid typography, layout constraints, hover states
-├── script.js         # Mobile navigation toggle, form-validation interceptors
-├── README.md         # Documentation
-└── images/           # Placeholder-free AI visual assets
-    ├── avatar1.png
-    ├── avatar2.png
-    ├── avatar3.png
-    ├── benefits.png
-    └── hero.png
+## 🛠️ Tech Stack
+
+### Frontend
+| Technology | Purpose |
+|------------|---------|
+| **HTML5** | Semantic page structure |
+| **CSS3** | Custom properties, `@keyframes`, media queries, glassmorphism |
+| **Vanilla JavaScript** | DOM manipulation, Intersection Observer, form validation |
+| **Google Fonts** (`Outfit`, `Inter`) | Premium typography |
+| **FontAwesome v6** | Icon library (CDN) |
+
+### AWS Infrastructure
+| Service | Usage |
+|---------|-------|
+| **EC2** (Amazon Linux 2023) | Virtual server to host the website |
+| **Apache HTTP Server (httpd)** | Web server to serve static files over HTTP |
+| **Elastic IP** | Static public IP (`54.173.124.70`) that persists across reboots |
+| **Security Groups** | Firewall rules — allowed inbound HTTP (port 80) and SSH (port 22) |
+| **IAM** | Identity & Access Management — two users with different permission levels |
+
+---
+
+## ⚙️ AWS Setup — Step-by-Step
+
+### 1. Launch EC2 Instance
+- Service: **EC2** → Launch Instance
+- AMI: **Amazon Linux 2023**
+- Instance Type: `t2.micro` (Free Tier eligible)
+- Key Pair: Created and downloaded `.pem` file for SSH access
+- Security Group: Opened ports **22 (SSH)** and **80 (HTTP)**
+
+### 2. Connect via SSH (Windows CMD)
+```bash
+# Fix key permissions (Windows)
+icacls "your-key.pem" /inheritance:r /grant:r "%USERNAME%:R"
+
+# SSH into instance
+ssh -i "your-key.pem" ec2-user@54.173.124.70
+```
+
+### 3. Install Apache & Deploy Website
+```bash
+# Update packages
+sudo yum update -y
+
+# Install Apache
+sudo yum install httpd -y
+
+# Start and enable Apache
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+# Navigate to web root
+cd /var/www/html
+
+# Clone the repository
+sudo git clone https://github.com/ankitgithub12/NexGen-Modern-Landing-Page.git .
+
+# Set correct permissions
+sudo chmod -R 755 /var/www/html
+```
+
+### 4. Allocate & Associate Elastic IP
+- EC2 Console → **Elastic IPs** → Allocate Elastic IP
+- Associate with the running EC2 instance
+- Result: `54.173.124.70` (permanent public IP)
+
+### 5. Configure IAM Users
+- IAM Console → **Users** → Create two users with console access
+
+---
+
+## 👤 IAM Users & Permissions
+
+| User | Policy Attached | Access Level |
+|------|----------------|--------------|
+| **User 1** | No EC2 policy | Cannot view or manage EC2 instances |
+| **User 2** | `AmazonEC2FullAccess` | Full EC2 read/write/manage access |
+
+> This demonstrates the **Principle of Least Privilege** — granting only the permissions each user actually needs.
+
+---
+
+## 📁 Project Structure
+
+```
+aws-project/
+├── index.html          # Main page — Hero, Features, Stats, Pricing, Testimonials
+├── styles.css          # Full design system — variables, animations, glassmorphism
+├── script.js           # Scroll animations, hamburger menu, form validation, count-up
+├── README.md           # Project documentation (this file)
+└── images/
+    ├── hero.png            # Hero section illustration
+    ├── benefits.png        # Benefits/dashboard section image
+    ├── avatar1.png         # Testimonial avatar — Sarah Jenks
+    ├── avatar2.png         # Testimonial avatar — Mark Thompson
+    ├── avatar3.png         # Testimonial avatar — Emily Chen
+    ├── EC2 instance.png    # AWS Console screenshot
+    ├── user1.png           # IAM User 1 login screenshot
+    └── user2.png           # IAM User 2 login screenshot
 ```
 
 ---
-*Created by Ankit Kumar.*
+
+## 🌐 Website Sections
+
+| Section | Description |
+|---------|-------------|
+| **Hero** | Headline, subheading, dual CTAs, floating hero image |
+| **Logo Cloud** | Trusted brands strip (AWS, Docker, Slack, Figma, JS) |
+| **Features** | 4-card grid — Lightning Fast, Security, Analytics, Integrations |
+| **Stats** | Animated counters — 10,000+ Users, 99% Satisfaction, 24/7 Support |
+| **Benefits** | Side-by-side layout — Automation, Collaboration, Reporting |
+| **Testimonials** | 3-card testimonial grid with avatars |
+| **Pricing** | 3-tier pricing — Basic ($19), Pro ($49), Enterprise ($99) |
+| **Contact / CTA** | Email signup form with frontend validation |
+| **Footer** | Brand, Product, Company, Legal columns + social links |
+
+---
+
+## 📸 Screenshots
+
+### ☁️ EC2 Instance — AWS Console
+![EC2 Instance AWS Console](images/EC2%20instance.png)
+
+---
+
+### 👤 User 1 — IAM Login (Restricted Access)
+![User 1 Login](images/user1.png)
+
+---
+
+### 👤 User 2 — IAM Login (Full EC2 Access)
+![User 2 Login](images/user2.png)
+
+---
+
+## ⚠️ Challenges Faced & How They Were Resolved
+
+| # | Challenge | Resolution |
+|---|-----------|------------|
+| 1 | **SSH `.pem` permission error on Windows** — Windows doesn't apply Unix-style file permissions, so SSH rejected the key with an "Unprotected private key file" error. | Used `icacls` in CMD to remove inherited permissions and grant access only to the current user. |
+| 2 | **Connection issues in Windows CMD** — SSH was not recognized as a command in older Windows setups. | Enabled the **OpenSSH Client** feature via Windows Settings → Optional Features. |
+| 3 | **File permission errors on EC2** — Cloning the repo directly to `/var/www/html` failed due to root-only write permissions. | Used `sudo` for all commands and ran `chmod -R 755` to fix directory permissions. |
+| 4 | **Region mismatch in IAM user login** — IAM users could not see EC2 instances because they were accessing a different AWS region than where the instance was launched. | Ensured both the root account and IAM users were using the **same region** (e.g., `us-east-1`) in the AWS Console. |
+| 5 | **Elastic IP not routing traffic** — After associating the EIP, HTTP requests were timing out. | Verified the Security Group had an inbound rule for **HTTP port 80** from `0.0.0.0/0`, which was initially missing. |
+
+---
+
+## 🚀 How to Run Locally
+
+No build tools or Node.js required.
+
+```bash
+# Clone the repo
+git clone https://github.com/ankitgithub12/NexGen-Modern-Landing-Page.git
+
+# Open in browser
+# Simply open index.html in any modern browser (Chrome, Firefox, Edge)
+```
+
+---
+
+*Built and deployed by Ankit | Hosted on AWS EC2*
