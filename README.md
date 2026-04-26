@@ -1,14 +1,14 @@
-# NexGen — AWS EC2 Static Website Hosting with IAM
+# NexGen — AWS S3 Static Website Hosting with Versioning & Lifecycle
 
-> A premium SaaS-style landing page built with vanilla HTML, CSS, and JavaScript — deployed on AWS EC2 with Apache and secured via IAM access control.
+> A premium SaaS-style landing page built with vanilla HTML, CSS, and JavaScript — deployed on **AWS S3** as a static website with versioning and lifecycle management, and also hosted on **AWS EC2** with Apache and secured via IAM access control.
 
 ---
 
-## 🔗 Live Deployed Link
+## 🔗 Live Deployed Link (S3)
 
-**[http://54.173.124.70](http://54.173.124.70)**
+**[http://ankit-s3-static-website-2026.s3-website-us-east-1.amazonaws.com](http://ankit-s3-static-website-2026.s3-website-us-east-1.amazonaws.com)**
 
-> Hosted on an AWS EC2 instance (Amazon Linux 2023) with an Elastic IP for a persistent, stable public URL.
+> Hosted on AWS S3 as a static website with versioning and lifecycle management enabled.
 
 ---
 
@@ -124,9 +124,12 @@ aws-project/
     ├── avatar1.png         # Testimonial avatar — Sarah Jenks
     ├── avatar2.png         # Testimonial avatar — Mark Thompson
     ├── avatar3.png         # Testimonial avatar — Emily Chen
-    ├── EC2 instance.png    # AWS Console screenshot
-    ├── user1.png           # IAM User 1 login screenshot
-    └── user2.png           # IAM User 2 login screenshot
+    ├── EC2 instance.png                              # AWS EC2 Console screenshot
+    ├── user1.png                                     # IAM User 1 login screenshot
+    ├── user2.png                                     # IAM User 2 login screenshot
+    ├── S3 Bucket with uploaded files visible.png     # S3 bucket screenshot
+    ├── Versioning view showing multiple versions of a file.png  # S3 versioning screenshot
+    └── Lifecycle rule configuration.png              # S3 lifecycle rule screenshot
 ```
 
 ---
@@ -190,4 +193,57 @@ git clone https://github.com/ankitgithub12/NexGen-Modern-Landing-Page.git
 
 ---
 
-*Built and deployed by Ankit | Hosted on AWS EC2*
+## ☁️ AWS S3 Static Website Hosting Assignment
+
+### 👤 Student Details
+
+| Field | Details |
+|-------|---------|
+| **Name** | Ankit Kumar |
+| **Registration Number** | 12318541 |
+| **Deployed Website Link (S3 URL)** | [http://ankit-s3-static-website-2026.s3-website-us-east-1.amazonaws.com](http://ankit-s3-static-website-2026.s3-website-us-east-1.amazonaws.com) |
+
+---
+
+### 🪣 S3 Setup — Step-by-Step
+
+1. **Create S3 Bucket** — Named `ankit-s3-static-website-2026` in `us-east-1` region
+2. **Disable Block Public Access** — Unchecked all "Block Public Access" settings
+3. **Enable Static Website Hosting** — Set `index.html` as the index document
+4. **Add Bucket Policy** — Allowed public `s3:GetObject` access via JSON policy
+5. **Upload Files** — Uploaded `index.html`, `styles.css`, `script.js`, and the `images/` folder
+6. **Enable Versioning** — Turned on S3 Versioning to track multiple file versions
+7. **Configure Lifecycle Rule** — Created a rule to transition/expire older object versions automatically
+
+---
+
+### 📸 S3 Screenshots
+
+#### 🪣 S3 Bucket — Uploaded Files Visible
+![S3 Bucket with uploaded files visible](images/S3%20Bucket%20with%20uploaded%20files%20visible.png)
+
+---
+
+#### 🔁 Versioning View — Multiple Versions of a File
+![Versioning view showing multiple versions of a file](images/Versioning%20view%20showing%20multiple%20versions%20of%20a%20file.png)
+
+---
+
+#### ♻️ Lifecycle Rule Configuration
+![Lifecycle rule configuration](images/Lifecycle%20rule%20configuration.png)
+
+---
+
+### ⚠️ S3 Challenges Faced & How They Were Resolved
+
+| # | Challenge | Resolution |
+|---|-----------|------------|
+| 1 | **403 Forbidden error after enabling static website hosting** — The website returned a 403 even after enabling static hosting. | Disabled **Block Public Access** on the bucket and added a bucket policy granting `s3:GetObject` to `"*"`. |
+| 2 | **CSS and JS files not loading (404)** — Only `index.html` loaded; stylesheets and scripts returned 404. | Ensured all files (`styles.css`, `script.js`, and the entire `images/` folder) were individually uploaded and publicly accessible in the bucket. |
+| 3 | **Versioning not visible initially** — After enabling versioning and re-uploading files, old versions were not shown. | Toggled the **"Show versions"** switch in the S3 console to reveal all stored versions of each object. |
+| 4 | **Lifecycle rule not applying** — The lifecycle rule was created but appeared inactive. | Verified that the rule scope was set to **"Apply to all objects in the bucket"** and that versioning was enabled (a prerequisite for version-expiry rules). |
+| 5 | **Images not rendering on S3-hosted site** — Some images failed to load due to case-sensitive file path mismatches. | Ensured all image filenames and paths in `index.html` exactly matched the uploaded file names in S3 (S3 keys are case-sensitive). |
+
+---
+
+*Built and deployed by Ankit Kumar (Reg: 12318541) | Hosted on AWS S3 & EC2*
