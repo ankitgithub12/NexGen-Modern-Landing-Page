@@ -438,3 +438,59 @@ img { max-width: 100%; height: auto; display: block; border-radius: var(--border
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
     .social-links { justify-content: center; }
 }
+
+/* =========================================
+   Version Badge (AWS Deployment Tracking)
+========================================= */
+#version-badge {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 100px;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    z-index: 998;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+}
+
+#version-badge:hover {
+    border-color: rgba(96, 165, 250, 0.4);
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.25), 0 4px 20px rgba(0,0,0,0.4);
+    transform: translateY(-2px);
+}
+
+#version-badge.copied {
+    border-color: rgba(52, 211, 153, 0.6);
+    box-shadow: 0 0 16px rgba(52, 211, 153, 0.3);
+}
+
+.version-env {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    border-radius: 100px;
+    background: var(--gradient-primary);
+    color: white;
+    line-height: 1;
+}
+
+.version-number {
+    font-family: 'Inter', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.02em;
+}
+

@@ -1,3 +1,18 @@
+<!--
+  ============================================================
+  APP VERSIONING — NexGen Landing Page
+  ============================================================
+  App Name    : NexGen Modern Landing Page
+  Version     : v1.0.0
+  Build Date  : 2026-04-26
+  Environment : production
+  Deployed By : aws-s3 / ec2
+  Region      : ap-south-1
+  ============================================================
+  CHANGELOG:
+  v1.0.0 — 2026-04-26 — Initial production release
+  ============================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +20,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexGen - The Future of Productivity</title>
     <meta name="description" content="A powerful suite of tools designed to boost your workflow and supercharge your team's productivity.">
+    <!-- Versioning Meta Tags (readable by AWS scripts / curl / CI checks) -->
+    <meta name="app-version" content="v1.0.0">
+    <meta name="app-environment" content="production">
+    <meta name="build-date" content="2026-04-26">
+    <meta name="deployed-region" content="ap-south-1">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +40,12 @@
     <div class="ambient-orb orb-1"></div>
     <div class="ambient-orb orb-2"></div>
     <div class="ambient-orb orb-3"></div>
+
+    <!-- Version Badge — visible on live site for instant AWS deploy verification -->
+    <div id="version-badge" title="Click to copy version info">
+        <span class="version-env">PROD</span>
+        <span class="version-number">v1.0.0</span>
+    </div>
 
     <!-- Sticky Navigation -->
     <header id="header" class="header blur-effect">

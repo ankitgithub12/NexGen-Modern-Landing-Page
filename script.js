@@ -178,4 +178,25 @@ document.addEventListener('DOMContentLoaded', () => {
             behavior: 'smooth'
         });
     });
+
+    // 8. Version Badge — click to copy version info to clipboard
+    const versionBadge = document.getElementById('version-badge');
+    if (versionBadge) {
+        versionBadge.addEventListener('click', () => {
+            const env = versionBadge.querySelector('.version-env').textContent;
+            const ver = versionBadge.querySelector('.version-number').textContent;
+            const info = `NexGen Landing Page | ${env} | ${ver} | ${new Date().toISOString()}`;
+
+            navigator.clipboard.writeText(info).then(() => {
+                const numEl = versionBadge.querySelector('.version-number');
+                const original = numEl.textContent;
+                numEl.textContent = 'Copied!';
+                versionBadge.classList.add('copied');
+                setTimeout(() => {
+                    numEl.textContent = original;
+                    versionBadge.classList.remove('copied');
+                }, 2000);
+            });
+        });
+    }
 });
